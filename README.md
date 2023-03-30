@@ -1,7 +1,10 @@
 # Turtlebot_Sensor_Fusion
 The Turtlebot4 Estimator is an object-oriented software package that estimates the linear velocity 
 and traveled distance of a Turtlebot4 robot using data from an IMU, optical mouse sensor, 
-and Marvelmind coordinate system. The package is implemented in both C++ and Python using the ROS2 framework.
+and Marvelmind coordinate system. The package is implemented in Python using the ROS2 framework.
+
+# Environments
+TurtleBot 4 is the next-generation of the world’s most popular open source robotics platform for education and research, offering better computing power, better sensors and a world class user experience at an affordable price point. Currently the ros2 version has been updated to humble, Ubuntu22.04, and the turtlebot4 has added new namespace features. Our turtlebot4's namespace is yosemite.
 
 # Features
 The Turtlebot4 Estimator provides the following features:
