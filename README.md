@@ -15,18 +15,18 @@ The Turtlebot4 Estimator provides the following features:
 # Installation
 1. Install ROS2 on your system, following the instructions on the ROS2 website.
 2. Clone the Turtlebot4 Estimator repository into your ROS2 workspace:
-'''
-$ cd /path/to/your/ros2/workspace/src
+```
+$ cd ~/ros2_ws/src
 $ git clone https://github.com/tianmuw/Turtlebot_Sensor_Fusion.git
-'''
+```
 3. Build the package using colcon
-'''
+```
 $ cd /path/to/your/ros2/workspace
 $ colcon build
-'''
+```
 
 4. Source the ROS2 installation and setup files
-'''
+```
 $ source /etc/opt/ros2/install/setup.bash
 $ source ~/ros2_ws/install/setup.bash
-'''
+```
