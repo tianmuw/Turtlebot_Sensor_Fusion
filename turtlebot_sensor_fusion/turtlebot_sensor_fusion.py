@@ -91,10 +91,13 @@ class Turtlebot4KF(Node):
 
         # Define the noise and covariance
         # self.H = np.eye(2)
+        # self.P = 
+        # self.Q =
+        # self.R =
         self.P = np.random.rand(4, 4)
         self.Q = np.random.rand(4, 4)
         self.R = np.random.rand(2, 2)
-        self.w = np.random.normal(loc=0, scale=0.6, size=4)
+        # self.w = np.random.normal(loc=0, scale=0.6, size=4)
 
         # Create time loop
         self.timer = self.create_timer(1. / 10, self.timer_callback)
@@ -115,11 +118,11 @@ class Turtlebot4KF(Node):
 
         H = np.eye(4)
 
-        self.state, self.P = self.kalman_filter(A, B, self.state, self.input, H, mea_vector,
-                                                self.P, self.Q, self.R, self.w)
+        self.state, self.P = self.kalman_pro(A, B, self.state, self.input, H, mea_vector,
+                                                self.P, self.Q, self.R)
         self.pub_odom_msg()
 
-    def kalman_filter(self, A, B, state, input, H, measurement, P, Q, R, w):
+    def kalman_pro(self, A, B, state, input, H, measurement, P, Q, R):
         """
 
         :param state: [x,y] or [vx, vy]
@@ -127,7 +130,7 @@ class Turtlebot4KF(Node):
         :param P: np.array((2, 2))
         :return: next_state [x,y] or [vx, vy], P_next
         """
-        state_pred = np.dot(A, state) + np.dot(B, input) + w
+        state_pred = np.dot(A, state) + np.dot(B, input)
         P_pred = np.dot(A, np.dot(P, A.T)) + Q
         y = measurement - np.dot(H, state_pred)
         s = np.dot(H, np.dot(P_pred, H.T)) + R
